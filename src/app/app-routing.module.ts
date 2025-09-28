@@ -4,19 +4,18 @@ import { ResumeComponent } from "./resume/resume.component";
 
 // Any URL apart from the root domain is going to be rendered as "page-not-found".
 const routes: Routes = [
-  { path: "", component: ResumeComponent},
-  { path: "about", redirectTo: "/#about"},
-  { path: "experience", redirectTo: "/#experience"},
-  { path: "experiences", redirectTo: "/#experience"},
-  { path: "posts", redirectTo: "/#posts"},
-  { path: "contact", redirectTo: "/#contact"},
-  { path: "**", redirectTo: "/page-not-found" }
+  { path: "", component: ResumeComponent },
+  { path: "about", redirectTo: "/#about" },
+  { path: "hobbies", redirectTo: "/#hobbies" },
+  { path: "experience", redirectTo: "/#experience" },
+  { path: "posts", redirectTo: "/#posts" },
+  { path: "contact", redirectTo: "/#contact" },
+  { path: "**", redirectTo: "/page-not-found" },
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(
-    routes,
-    {
+  imports: [
+    RouterModule.forRoot(routes, {
       // In order to get anchor / fragment scrolling to work at all, we need to
       // enable it on the router.
       anchorScrolling: "enabled",
@@ -27,10 +26,9 @@ const routes: Routes = [
       // the fragment scrolling is powered by Navigation Events. As such, we
       // have to tell the Router to re-trigger the Navigation Events even if we
       // are navigating to the same URL.
-      onSameUrlNavigation: "reload"
-    }
-  )],
-  exports: [ RouterModule ]
+      onSameUrlNavigation: "reload",
+    }),
+  ],
+  exports: [RouterModule],
 })
-
-export class AppRoutingModule { }
+export class AppRoutingModule {}

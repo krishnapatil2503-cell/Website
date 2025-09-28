@@ -3,9 +3,31 @@
 //----------------------------------*/
 @import 'assets/fonts/_fonts.scss';
 
-// primary background and font
-$primary_font: "Montserrat", sans-serif;
-$primary_background: #d4e7fe;
+// Moonlit Landscape Color Scheme
+$primary_font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+// Primary Colors
+$deep_night_blue: #1a237e;
+$midnight_blue: #283593;
+$twilight_blue: #3949ab;
+
+// Accent Colors
+$moonlight_cyan: #81d4fa;
+$river_reflection: #4fc3f7;
+$starlight_blue: #29b6f6;
+
+// Supporting Colors
+$shadow_mountain: #1e3a5f;
+$deep_forest: #0f2635;
+$stone_grey: #37474f;
+
+// Text & Neutral
+$moonbeam_white: #e8eaf6;
+$misty_grey: #c5cae9;
+$gentle_lavender: #9fa8da;
+
+// Primary background
+$primary_background: #000000;
 
 // font-weight
 $thin:100;
@@ -31,6 +53,7 @@ html, body {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    color: $moonbeam_white;
 }
 
 section {
@@ -38,3 +61,15 @@ section {
 }
 
 app-welcome, app-experience, app-about, app-posts, app-contact { display: block; }
+
+// Force header transparency
+app-header {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+app-header.sticky {
+    background: rgba(0, 0, 0, 0.3) !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(20px) !important;
+}

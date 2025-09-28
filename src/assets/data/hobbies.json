@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Night life",
+    "description": "Capturing moments and telling stories through the lens.",
+    "icon": "camera",
+    "backgroundUrl": "assets/night_life.jpeg",
+    "color": "#FF6B6B",
+    "position": 3
+  },
+  {
+    "id": 2,
+    "title": "Coffee Addict",
+    "description": "Creating beats and melodies that resonate.",
+    "icon": "coffee",
+    "backgroundUrl": "assets/template/welcome/music-bg.jpg",
+    "color": "#4ECDC4",
+    "position": 2
+  },
+  {
+    "id": 3,
+    "title": "Bowling",
+    "description": "Exploring culinary arts and experimenting with flavors from around the world.",
+    "icon": "dumbbell",
+    "backgroundUrl": "assets/template/welcome/cooking-bg.jpg",
+    "color": "#45B7D1",
+    "position": 1
+  }
+]

@@ -1,31 +1,42 @@
 <section id="posts">
     <div class="container">
-        <div class="top-container">
-            <div class="title">
-                <h1 i18n="nav@@posts">Posts</h1>
-            </div>
-            <div class="navigation">
-                <a href="javascript:void(0)" class="previous" (click)="onClickPrevious()" [ngClass]="{'disabled': disablePreviousNavigation()}">
-                    <div class="molding">
-                        <fa-icon [icon]="faChevronLeft" class="icon" i18n-title="exp.nav@@previous" title="Previous"></fa-icon>
-                        <span i18n="exp.nav@@previous">Previous</span>
+        <div class="header">
+            <h1 i18n="nav@@posts">Blog Posts & Articles</h1>
+            <p class="subtitle">Sharing knowledge and insights from my development journey</p>
+        </div>
+
+        <div class="scroll-container">
+            <div class="scroll-content">
+                <div class="post-card"
+                     *ngFor="let post of posts; let i = index">
+                    <div class="card-image">
+                        <img [src]="post.thumbnail" [alt]="post.title" loading="lazy">
+                        <div class="image-overlay">
+                            <fa-icon [icon]="['fas', 'external-link-alt']" class="icon"></fa-icon>
+                        </div>
                     </div>
-                </a>
-                <div class="divider">|</div>
-                <a href="javascript:void(0)" class="next" (click)="onClickNext()" [ngClass]="{'disabled': disableNextNavigation()}">
-                    <div class="molding">
-                        <span i18n="exp.nav@@next">Next</span>
-                        <fa-icon [icon]="faChevronRight" class="icon" i18n-title="exp.nav@@next" title="Next"></fa-icon>
+                    <div class="card-content">
+                        <div class="post-meta">
+                            <span class="date">{{ post.date | date:'MMM dd, yyyy' }}</span>
+                            <span class="category">Blog Post</span>
+                        </div>
+                        <h3 class="post-title" appInternationalization [data]="post.internationalizations" property='title'>Loading...</h3>
+                        <p class="post-description" appInternationalization [data]="post.internationalizations" property='description'>Loading...</p>
+                        <div class="post-actions">
+                            <a [href]="post.http" target="_blank" class="read-more">
+                                <fa-icon [icon]="['fas', 'arrow-right']" class="icon"></fa-icon>
+                                Read Article
+                            </a>
+                            <div class="social-share">
+                                <button class="share-btn" (click)="sharePost(post)" title="Share this post">
+                                    <fa-icon [icon]="['fas', 'share-alt']" class="icon"></fa-icon>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
-        <p class="synopsis" i18n="posts@@synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vulputate sagittis velit, eget scelerisque arcu semper finibus.</p>
-        <div class="middle-container" (swipe)="onSwipe($event)">
-            <app-posts-carousel
-                [posts]="posts"
-                [currentPage]="currentPage"
-                (resultsPerPageChanged)="updateNavigation($event)"></app-posts-carousel>
-        </div>
+
     </div>
 </section>

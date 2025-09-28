@@ -7,43 +7,52 @@ import { catchError } from "rxjs/operators";
 import { IExperience } from "../experience/experience-interfaces";
 import { IAbout } from "../about/about-interfaces";
 import { IPost } from "../posts/posts-interfaces";
+import { IHobby } from "../hobbies/hobbies-interfaces";
 
 @Injectable()
 export class DataService {
+  baseUrl: string = "assets/data/";
 
-    baseUrl: string = "assets/data/";
-    
-    constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-    getExperiences() : Observable<IExperience[]> {
-        return this.http.get<IExperience[]>(this.baseUrl + "experiences.json")
-            .pipe(
-                catchError(this.handleError)
-            );
-    }
-    
-    getAbout() : Observable<IAbout> {
-      return this.http.get<IAbout>(this.baseUrl + "about.json")
-          .pipe(
-              catchError(this.handleError)
-          );
-    }
+  getExperiences(): Observable<IExperience[]> {
+    return this.http
+      .get<IExperience[]>(this.baseUrl + "experiences.json")
+      .pipe(catchError(this.handleError));
+  }
 
-    getPosts() : Observable<IPost[]> {
-        return this.http.get<IPost[]>(this.baseUrl + "posts.json")
-            .pipe(
-                catchError(this.handleError)
-            );
-    }
+  getAbout(): Observable<IAbout> {
+    return this.http
+      .get<IAbout>(this.baseUrl + "about.json")
+      .pipe(catchError(this.handleError));
+  }
 
-    private handleError(error: any) {
-      console.error("server error:", error);
-      if (error.error instanceof Error) {
-          const errMessage = error.error.message;
-          return Observable.throw(errMessage);
-          // Use the following instead if using lite-server
-          // return Observable.throw(err.text() || "backend server error");
-      }
-      return Observable.throw(error || "Node.js server error");
+  getPosts(): Observable<IPost[]> {
+    return this.http
+      .get<IPost[]>(this.baseUrl + "posts.json")
+      .pipe(catchError(this.handleError));
+  }
+
+  getHobbies(): Observable<IHobby[]> {
+    return this.http
+      .get<IHobby[]>(this.baseUrl + "hobbies.json")
+      .pipe(catchError(this.handleError));
+  }
+
+  getExtracurricular(): Observable<IHobby[]> {
+    return this.http
+      .get<IHobby[]>(this.baseUrl + "extracurricular.json")
+      .pipe(catchError(this.handleError));
+  }
+
+  private handleError(error: any) {
+    console.error("server error:", error);
+    if (error.error instanceof Error) {
+      const errMessage = error.error.message;
+      return Observable.throw(errMessage);
+      // Use the following instead if using lite-server
+      // return Observable.throw(err.text() || "backend server error");
     }
+    return Observable.throw(error || "Node.js server error");
+  }
 }

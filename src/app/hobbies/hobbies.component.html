@@ -1,0 +1,81 @@
+<section id="hobbies">
+  <div class="hobbies-container">
+    <!-- Header Section -->
+    <div class="hobbies-header">
+      <!-- <h2 class="hobbies-main-title">Tech that turns benefits into breakthroughs</h2> -->
+
+      <!-- Main Tab Navigation -->
+      <div class="hobbies-main-tabs">
+        <button class="main-tab-btn"
+                [class.active]="activeMainTab === 'hobbies'"
+                (click)="setActiveMainTab('hobbies')">
+          <div class="tab-label">Hobbies</div>
+          <div class="tab-tooltip">
+            <div class="tooltip-arrow"></div>
+            <div class="tooltip-content">
+              <p class="tooltip-text">Discover my personal interests and creative pursuits</p>
+            </div>
+          </div>
+        </button>
+        <button class="main-tab-btn"
+                [class.active]="activeMainTab === 'extracurricular'"
+                (click)="setActiveMainTab('extracurricular')">
+          <div class="tab-label">Activities</div>
+          <div class="tab-tooltip">
+            <div class="tooltip-arrow"></div>
+            <div class="tooltip-content">
+              <p class="tooltip-text">Explore my community involvement and professional activities</p>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="hobbies-content-container">
+      <!-- Image and Description Layout -->
+      <div class="hobbies-main-layout">
+        <!-- Image Container -->
+        <div class="hobbies-image-container">
+          <app-floating-elements></app-floating-elements>
+          <div class="hobbies-image-box">
+            <img [src]="getCurrentItems()[currentPosition - 1]?.backgroundUrl || 'assets/template/welcome/default-bg.jpg'"
+                 [alt]="getCurrentItems()[currentPosition - 1]?.title || 'Hobby Image'"
+                 class="hobby-image">
+          </div>
+        </div>
+
+        <!-- Description Box -->
+        <div class="hobbies-description-container">
+          <div class="hobbies-description-box">
+            <p class="hobbies-description-text">{{ getCurrentItems()[currentPosition - 1]?.description || 'Loading description...' }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Horizontal Hobby Items Below Image -->
+      <div class="hobbies-items-container">
+        <div class="hobbies-progress-indicator">
+          <div class="hobbies-progress-bar" [style.width.%]="(currentPosition / getCurrentItems().length) * 100"></div>
+        </div>
+
+        <div class="hobbies-items-grid">
+          <button class="hobby-item-btn"
+                  *ngFor="let item of getCurrentItems(); let i = index"
+                  [class.active]="i === currentPosition - 1"
+                  (click)="setActiveSubTab(i + 1)">
+            <div class="hobby-item-content">
+              <div class="hobby-item-icon" [style.background-color]="item.color">
+                <fa-icon [icon]="['fas', item.icon]" class="icon"></fa-icon>
+              </div>
+              <div class="hobby-item-info">
+                <h4 class="hobby-item-title">{{ item.title }}</h4>
+                <p class="hobby-item-description">{{ item.description }}</p>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

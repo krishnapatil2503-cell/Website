@@ -1,9 +1,42 @@
 header {
     display: flex;
-    background: transparent;
+    background: transparent !important;
     flex-flow: row wrap;
     max-width: 1400px;
     width: 100%;
+    position: relative;
+    z-index: 1000;
+
+    // Glass effect when scrolled
+    &.sticky {
+        background: rgba(0, 0, 0, 0.3) !important;
+        backdrop-filter: blur(20px) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+        transition: all 0.3s ease;
+
+        // Override any white background
+        .child.nav-container {
+            background: transparent !important;
+        }
+
+        .child.logo-container {
+            background: transparent !important;
+        }
+
+        // Force all child elements to be transparent
+        .child {
+            background: transparent !important;
+        }
+
+        // Ensure navigation links maintain glass effect when sticky
+        .child.nav-container ul li a {
+            background: rgba(129, 212, 250, 0.15) !important;
+            backdrop-filter: blur(15px) !important;
+            border: 1px solid rgba(129, 212, 250, 0.3) !important;
+            box-shadow: 0 4px 15px rgba(129, 212, 250, 0.2) !important;
+        }
+    }
 
     ul {
         display: flex;
@@ -14,53 +47,178 @@ header {
     }
 
     .child.logo-container {
-        flex-grow: 2;
+        flex-grow: 0;
         text-align: left;
+        padding-left: 0px;
+        margin-left: 0px;
+        position: absolute;
+        left: -80px;
+        top: 50%;
+        transform: translateY(-50%);
 
         a {
-            width: 125px;
+            width: auto;
             text-decoration: none;
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #e8eaf6 0%, #81d4fa 50%, #4fc3f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+            text-shadow: 0 0 30px rgba(129, 212, 250, 0.4);
+            position: relative;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-bottom: 5px;
+            animation: nameGlow 3s ease-in-out infinite;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: linear-gradient(90deg, #81d4fa 0%, #4fc3f7 100%);
+                border-radius: 1px;
+                transition: width 0.3s ease;
+                box-shadow: 0 0 8px rgba(129, 212, 250, 0.5);
+            }
+
+            &:hover {
+                transform: translateY(-2px);
+                text-shadow: 0 0 50px rgba(129, 212, 250, 0.8), 0 0 80px rgba(79, 195, 247, 0.4);
+                filter: brightness(1.2);
+                animation: none;
+
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+
+        .years-old {
+            font-size: 0.9rem;
+            color: #c5cae9;
+            margin: 0;
+            font-weight: 300;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            font-size: 35px;
-            font-weight: 700;
-            color: #222f5c;
+            position: relative;
+
+            &::before {
+                content: '●';
+                color: #81d4fa;
+                margin-right: 6px;
+                font-size: 0.7rem;
+                animation: pulse 2s ease-in-out infinite;
+            }
         }
     }
 
     .child.nav-container {
-        flex-grow: 5;
+        flex-grow: 1;
         transition: 0.3s;
+        padding-right: 20px;
+        margin-left: 180px; // Space for the logo
+
+        // Enhanced glass effect for navigation
+        &.glass-nav {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 8px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
 
         ul {
             justify-content: flex-end;
             align-items: center;
             height: 52px;
+            padding: 15px 0;
 
             li {
                 text-align: center;
-                margin-right: 1em;
+                margin-right: 1.5em;
+                position: relative;
 
                 a {
                     text-transform: capitalize;
                     text-decoration: none;
-                    font-size: 20px;
+                    font-size: 1.1rem;
                     font-weight: 600;
-                    color: #222f5c;
-                    padding: 14px;
-                    border-radius: 15px;
-                    transition: 0.3s;
+                    color: rgba(255, 255, 255, 0.9);
+                    padding: 12px 20px;
+                    border-radius: 25px;
+                    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                    position: relative;
+                    background: transparent;
+                    backdrop-filter: blur(15px);
+                    border: none;
+                    letter-spacing: 0.01em;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
 
-                    &:not(.active):hover {
-                        background-color: #fff;
-                        -webkit-box-shadow: 0 0 9px 0 rgba(112, 112, 112, 0.16); 
-                        box-shadow: 0 0 9px 0 rgba(112, 112, 112, 0.16);
+                    // SVG Circle styles
+                    .nav-circle {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        width: calc(100% + 30px);
+                        height: calc(100% + 30px);
+                        transform: translate(-50%, -50%);
+                        opacity: 0;
+                        transition: opacity 0.3s ease;
+                        z-index: -1;
+                        pointer-events: none;
+                    }
+
+                    .nav-circle-stroke {
+                        stroke-dasharray: 314; // Circumference of circle with radius 50
+                        stroke-dashoffset: 314;
+                        transition: stroke-dashoffset 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                        stroke-linecap: round;
+                        stroke-width: 2;
+                    }
+
+                    &:hover {
+                        color: #00d4ff;
+                        transform: translateY(-2px);
+                        text-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+
+                        .nav-circle {
+                            opacity: 1;
+                        }
+
+                        .nav-circle-stroke {
+                            stroke-dashoffset: 0;
+                        }
                     }
                 }
 
                 .active {
-                    background-color: #222f5c;
-                    color: #fff;
+                    background: transparent;
+                    color: #00d4ff;
                     font-weight: 600;
+                    position: relative;
+                    transform: translateY(-2px);
+
+                    // Underline with stroke effect
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -5px;
+                        left: 50%;
+                        width: 80%;
+                        height: 2px;
+                        background: linear-gradient(90deg, #00d4ff 0%, #0099cc 100%);
+                        transform: translateX(-50%);
+                        border-radius: 1px;
+                        box-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+                        animation: underlineGlow 2s ease-in-out infinite alternate;
+                    }
                 }
             }
         }
@@ -70,9 +228,9 @@ header {
 
         .frame {
             background-color: #fff;
-            display: inline-block; 
+            display: inline-block;
             border-radius: 15px;
-            -webkit-box-shadow: 0 0 9px 0 rgba(112, 112, 112, 0.16); 
+            -webkit-box-shadow: 0 0 9px 0 rgba(112, 112, 112, 0.16);
             box-shadow: 0 0 9px 0 rgba(112, 112, 112, 0.16);
 
             ul {
@@ -141,6 +299,94 @@ header {
             &:hover {
                 color: #222f5c;
             }
-        }        
+        }
+    }
+}
+
+// Additional selector for app-header component
+app-header {
+    background: transparent !important;
+    background-color: transparent !important;
+
+    &.sticky {
+        background: rgba(0, 0, 0, 0.3) !important;
+        background-color: rgba(0, 0, 0, 0.3) !important;
+        backdrop-filter: blur(20px) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+        transition: all 0.3s ease;
+
+        header {
+            background: transparent !important;
+            background-color: transparent !important;
+        }
+
+        .child {
+            background: transparent !important;
+            background-color: transparent !important;
+        }
+
+        .child.nav-container ul li a {
+            background: rgba(129, 212, 250, 0.15) !important;
+            backdrop-filter: blur(15px) !important;
+            border: 1px solid rgba(129, 212, 250, 0.3) !important;
+            box-shadow: 0 4px 15px rgba(129, 212, 250, 0.2) !important;
+        }
+    }
+}
+
+// Force override any white backgrounds globally
+* {
+    &:has(app-header) {
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+}
+
+// Nuclear option - override everything
+app-header,
+app-header *,
+app-header header,
+app-header header *,
+app-header .child,
+app-header .child * {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+app-header.sticky,
+app-header.sticky *,
+app-header.sticky header,
+app-header.sticky header *,
+app-header.sticky .child,
+app-header.sticky .child * {
+    background: rgba(0, 0, 0, 0.3) !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes underlineGlow {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+        opacity: 0.8;
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.9), 0 0 30px rgba(0, 153, 204, 0.4);
+        opacity: 1;
+    }
+}
+
+@keyframes nameGlow {
+    0%, 100% {
+        text-shadow: 0 0 30px rgba(129, 212, 250, 0.4);
+        filter: brightness(1);
+    }
+    50% {
+        text-shadow: 0 0 40px rgba(129, 212, 250, 0.7), 0 0 60px rgba(79, 195, 247, 0.3);
+        filter: brightness(1.1);
     }
 }

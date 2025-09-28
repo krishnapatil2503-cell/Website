@@ -1,13 +1,12 @@
-import { Component, OnInit, HostListener } from "@angular/core";
+import { Component, HostListener } from "@angular/core";
 import { debounce } from "../core/utils";
 
 @Component({
   selector: "app-resume",
   templateUrl: "./resume.component.html",
-  styleUrls: ["./resume.component.css", "./resume.component.responsivity.css"]
+  styleUrls: ["./resume.component.css", "./resume.component.responsivity.css"],
 })
 export class ResumeComponent {
-
   isSticky: boolean = false;
   activeSection: string;
 

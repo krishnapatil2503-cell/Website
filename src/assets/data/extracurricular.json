@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Volunteer Teaching",
+    "description": "Teaching programming and technology skills to underprivileged students.",
+    "icon": "chalkboard-teacher",
+    "backgroundUrl": "assets/template/welcome/teaching-bg.jpg",
+    "color": "#FF6B6B",
+    "position": 1
+  },
+  {
+    "id": 2,
+    "title": "Tech Meetups",
+    "description": "Organizing and participating in local tech meetups and conferences.",
+    "icon": "users",
+    "backgroundUrl": "assets/template/welcome/meetup-bg.jpg",
+    "color": "#4ECDC4",
+    "position": 2
+  }
+]

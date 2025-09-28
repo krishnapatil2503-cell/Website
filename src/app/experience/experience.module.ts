@@ -4,11 +4,11 @@ import { ExperienceTimelineComponent } from "./experience-timeline/experience-ti
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { CommonModule } from "@angular/common";
 import { CoreModule } from "../core/core.module";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
-    imports: [ CommonModule, FontAwesomeModule, CoreModule ],
-    declarations: [ ExperienceComponent, ExperienceTimelineComponent ],
-    exports: [ ExperienceComponent ]
+  imports: [CommonModule, FontAwesomeModule, CoreModule, SharedModule],
+  declarations: [ExperienceComponent, ExperienceTimelineComponent],
+  exports: [ExperienceComponent],
 })
-
-export class ExperienceModule { }
+export class ExperienceModule {}
