@@ -13,7 +13,7 @@
     "title": "Coffee Addict",
     "description": "Creating beats and melodies that resonate.",
     "icon": "coffee",
-    "backgroundUrl": "assets/template/welcome/music-bg.jpg",
+    "backgroundUrl": "assets/night_life.jpeg",
     "color": "#4ECDC4",
     "position": 2
   },
@@ -22,7 +22,7 @@
     "title": "Bowling",
     "description": "Exploring culinary arts and experimenting with flavors from around the world.",
     "icon": "dumbbell",
-    "backgroundUrl": "assets/template/welcome/cooking-bg.jpg",
+    "backgroundUrl": "assets/bg.jpeg",
     "color": "#45B7D1",
     "position": 1
   }

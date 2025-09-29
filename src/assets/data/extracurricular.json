@@ -4,7 +4,7 @@
     "title": "Volunteer Teaching",
     "description": "Teaching programming and technology skills to underprivileged students.",
     "icon": "chalkboard-teacher",
-    "backgroundUrl": "assets/template/welcome/teaching-bg.jpg",
+    "backgroundUrl": "assets/home_bg.png",
     "color": "#FF6B6B",
     "position": 1
   },
@@ -13,7 +13,7 @@
     "title": "Tech Meetups",
     "description": "Organizing and participating in local tech meetups and conferences.",
     "icon": "users",
-    "backgroundUrl": "assets/template/welcome/meetup-bg.jpg",
+    "backgroundUrl": "assets/night_life.jpeg",
     "color": "#4ECDC4",
     "position": 2
   }
