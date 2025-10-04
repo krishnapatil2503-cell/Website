@@ -1,27 +1,27 @@
 <section id="posts">
     <div class="container">
         <div class="header">
-            <h1 i18n="nav@@posts">Blog Posts & Articles</h1>
-            <p class="subtitle">Sharing knowledge and insights from my development journey</p>
+            <h1 i18n="nav@@posts">Blog Posts & Thesis</h1>
+            <p class="subtitle">Sharing knowledge and insights from my career journey</p>
         </div>
 
         <div class="scroll-container">
             <div class="scroll-content">
                 <div class="post-card"
                      *ngFor="let post of posts; let i = index">
-                    <div class="card-image">
-                        <img [src]="post.thumbnail" [alt]="post.title" loading="lazy">
-                        <div class="image-overlay">
-                            <fa-icon [icon]="['fas', 'external-link-alt']" class="icon"></fa-icon>
+                    <a [href]="post.http" target="_blank" class="card-image-link">
+                        <div class="card-image">
+                            <img [src]="post.thumbnail" [alt]="post.http" loading="lazy">
+                            <div class="image-overlay">
+                                <fa-icon [icon]="['fas', 'external-link-alt']" class="icon"></fa-icon>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                     <div class="card-content">
                         <div class="post-meta">
                             <span class="date">{{ post.date | date:'MMM dd, yyyy' }}</span>
                             <span class="category">Blog Post</span>
                         </div>
-                        <h3 class="post-title" appInternationalization [data]="post.internationalizations" property='title'>Loading...</h3>
-                        <p class="post-description" appInternationalization [data]="post.internationalizations" property='description'>Loading...</p>
                         <div class="post-actions">
                             <a [href]="post.http" target="_blank" class="read-more">
                                 <fa-icon [icon]="['fas', 'arrow-right']" class="icon"></fa-icon>

@@ -41,14 +41,11 @@ export class PostsComponent extends AbstractSwipeSection implements OnInit {
 
   sharePost(post: IPost): void {
     // Get the first internationalization for title and description
-    const firstIntl = post.internationalizations?.[0];
-    const title = firstIntl?.title || "Blog Post";
-    const description = firstIntl?.description || "";
+    const title = "Blog Post";
 
     if (navigator.share) {
       navigator.share({
         title: title,
-        text: description,
         url: post.http,
       });
     } else {

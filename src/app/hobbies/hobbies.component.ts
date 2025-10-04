@@ -7,6 +7,13 @@ import {
   ViewChild,
   HostListener,
 } from "@angular/core";
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from "@angular/animations";
 import { DataService } from "../core/data.service";
 import { SorterService } from "../core/sorter.service";
 import { FaIconLibrary } from "@fortawesome/angular-fontawesome";
@@ -20,6 +27,23 @@ import { IHobby } from "./hobbies-interfaces";
     "./hobbies.component.scss",
     "./hobbies.component.responsivity.scss",
   ],
+  animations: [
+    trigger("gifPopAnimation", [
+      transition(":enter", [
+        style({ opacity: 0, transform: "translateX(-100px)" }),
+        animate(
+          "0.8s ease-out",
+          style({ opacity: 1, transform: "translateX(0)" })
+        ),
+      ]),
+      transition(":leave", [
+        animate(
+          "0.5s ease-in",
+          style({ opacity: 0, transform: "translateX(-100px)" })
+        ),
+      ]),
+    ]),
+  ],
 })
 export class HobbiesComponent implements OnInit, OnDestroy {
   hobbies: IHobby[] = [];
@@ -29,7 +53,10 @@ export class HobbiesComponent implements OnInit, OnDestroy {
   backgroundUrl: string = "";
   currentPosition: number = 1;
   activeMainTab: string = "hobbies";
+  gifAnimationKey: number = 0;
+  showGif: boolean = false;
   private intersectionObserver: IntersectionObserver;
+  private sectionObserver: IntersectionObserver;
 
   @ViewChild("contentScrollContainer") contentScrollContainer: ElementRef;
 
@@ -89,11 +116,45 @@ export class HobbiesComponent implements OnInit, OnDestroy {
     if (this.intersectionObserver) {
       this.intersectionObserver.disconnect();
     }
+    if (this.sectionObserver) {
+      this.sectionObserver.disconnect();
+    }
   }
 
   private setupIntersectionObserver(): void {
     const hobbiesSection = document.getElementById("hobbies");
     if (!hobbiesSection) return;
+
+    // Observer for the hobbies section itself to restart GIF animation
+    this.sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (
+            entry.isIntersecting &&
+            (this.activeMainTab === "hobbies" ||
+              this.activeMainTab === "extracurricular")
+          ) {
+            // Show and restart GIF animation when hobbies section comes into view
+            setTimeout(() => {
+              this.showGif = true;
+              this.gifAnimationKey = Date.now();
+              console.log(
+                "Hobbies/Extracurricular section in view, showing and restarting GIF"
+              );
+            }, 100);
+          } else {
+            // Hide GIF when leaving hobbies section
+            this.showGif = false;
+          }
+        });
+      },
+      {
+        root: null,
+        threshold: 0.2,
+      }
+    );
+
+    this.sectionObserver.observe(hobbiesSection);
 
     const hobbyItems = hobbiesSection.querySelectorAll(".hobby-item");
 
@@ -214,6 +275,18 @@ export class HobbiesComponent implements OnInit, OnDestroy {
     this.currentPosition = 1;
     this.backgroundUrl = this.retrieveBackgroundUrl();
     this.updateMobileNavigationView();
+
+    // Show/hide and restart GIF animation when toggling tabs
+    if (tab === "hobbies" || tab === "extracurricular") {
+      // Hide first, then show with new key to trigger animation
+      this.showGif = false;
+      setTimeout(() => {
+        this.showGif = true;
+        this.gifAnimationKey = Date.now();
+      }, 50);
+    } else {
+      this.showGif = false;
+    }
   }
 
   setActiveSubTab(position: number) {
@@ -226,5 +299,10 @@ export class HobbiesComponent implements OnInit, OnDestroy {
     return this.activeMainTab === "hobbies"
       ? this.hobbiesOrdered
       : this.extracurricularOrdered;
+  }
+
+  onGifLoad() {
+    // GIF loaded successfully
+    console.log("GIF loaded with key:", this.gifAnimationKey);
   }
 }

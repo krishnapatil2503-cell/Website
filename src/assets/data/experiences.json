@@ -2,148 +2,46 @@
   {
     "id": 4,
     "position": 4,
-    "startAt": "04-01-2024",
-    "endAt": "04-30-2025",
     "companyName": "Plum Benefits",
-    "website": "https://www.plumhq.com/",
+    "description": "Forbes 100 Insurtech startup specializing in employee healthcare benefits and wellness",
     "logo": "assets/plum_logo.jpeg",
-    "internationalizations": [
-      {
-        "language": "pt",
-        "city": "Bangalore",
-        "country": "Índia",
-        "role": "Membro Fundador (B2B2C)",
-        "description": "Startup Insurtech Forbes 100 especializada em benefícios de saúde e bem-estar para funcionários – <b>Plum Benefits (Insurtech)</b> | Membro Fundador (B2B2C) | Bangalore, Abr' 24 – Abr' 25<br><br><b>Apoiada por Peak XV, Tanglin Venture e Tiger Global</b><br><br><b>Expansão de Negócios:</b><br>• Lançou vertical de negócios B2B2C<br>• Cresceu receita mensal de 0 para INR 5Mn desenvolvendo 2 linhas de produtos humanas e 2 tecnológicas contribuindo com 5% da receita da empresa<br>• Desenvolveu ferramenta de geração de cotações economizando 2 horas por vendedor permitindo agendar chamadas de vendas diárias de 6 para 8 por pessoa<br>• Reduziu tempo de integração em 40% (8 horas para 3 horas) redesenhandando a jornada e habilitando busca de dados passados e dashboards em tempo real<br><br><b>Expansão de Linha de Produtos:</b><br>• Gerou INR 15mn (30% da receita total) introduzindo linha de produtos (Seguro de Saúde Pessoal) complementando programa de lucratividade de vendas<br>• Integrou os 3 principais seguradoras da Índia para seguro de saúde pessoal e negociou comissão baseada em metas de vendas anuais e termos comerciais<br>• Gerou INR 10Mn vendendo os primeiros 100 seguros para desenvolver campanha de marketing, pitch de vendas e módulo de treinamento para equipe de vendas<br>• Contratou e construiu uma equipe de vendas de 6 membros operando a uma taxa mensal de 100 seguros e INR 3Mn em receita em 6 meses<br>• Alcançou 15% de aumento na geração de leads e 30% de aumento na receita YoY implementando jornada de compra self-checkout do cliente<br><br><b>Iniciativas Estratégicas:</b><br>• Alocação de leads: Aumentou conversão em 4% e ticket médio em 20% através de novo mecanismo de alocação de leads baseado em dados e automação<br>• Identificação de oportunidades: Descobriu potencial não explorado de INR 10Cr+ preparando relatórios de insights de mercado usados para gerar INR 10Mn em um ano<br>• Plano Estratégico: Projetou plano de negócios operacional visando INR 100Mn, incluindo projeções financeiras, plano de contratação e desenvolvimento de produtos"
-      },
-      {
-        "language": "en",
-        "city": "Bangalore",
-        "country": "India",
-        "role": "Founding Member (B2B2C)",
-        "description": "Forbes 100 Insurtech startup specializing in employee healthcare benefits and wellness – <b>Plum Benefits (Insurtech)</b> | Founding Member (B2B2C) | Bangalore, Apr' 24 – Apr' 25<br><br><b>Backed by Peak XV, Tanglin Venture and Tiger Global</b><br><br><b>Business Expansion:</b><br>• Launched B2B2C business vertical<br>• Grew monthly revenue from 0 to INR 5Mn by developing 2 human-led and 2 tech-led product lines contributing to 5% of company's revenue<br>• Developed Quote generation tool saving 2 hours per salesperson enabling to schedule daily customer sales calls from 6 to 8 per person<br>• Reduced onboarding time by 40% (8 hours to 3 hours) by redesigning the journey and enabling past data fetching and real time dashboards<br><br><b>Product Line Expansion:</b><br>• Generated INR 15mn (30% overall revenue) by introducing product line (Personal Health Insurance) complementing sales profitability program<br>• Onboarded India's top 3 insurer for personal health insurance and negotiated annual sales target-based commission and commercial terms<br>• Generated INR 10Mn by selling first 100 insurance policies to develop marketing campaign, sales pitch and training module for sales team<br>• Hired and built a 6-member sales team engine operating at a monthly run rate of 100 policies and INR 3Mn in revenue 6 months' timeframe<br>• Achieved 15% increase in lead generation and 30% increase in YoY revenue by implementing self-checkout customer purchase journey<br><br><b>Strategic Initiatives:</b><br>• Lead allocation: Increased conversion by 4% and average ticket size by 20% through new data-led lead allocation mechanism and automation<br>• Opportunity identification: Uncovered INR 10Cr+ untapped potential by preparing market insights reports used to generate INR 10Mn in a year<br>• Strategy Blueprint: Designed operating business plan targeting INR 100Mn, including financial projections, hiring plan and product development"
-      }
-    ],
-    "medias": [
-      {
-        "icon": "linkedin",
-        "title": "LinkedIn Plum Benefits",
-        "http": "https://www.linkedin.com/company/plumhq/"
-      },
-      {
-        "icon": "website",
-        "title": "Plum Benefits Website",
-        "http": "https://www.plumhq.com/"
-      }
-    ],
+    "role": "Founding Member (B2C)",
     "backgroundUrl": "assets/template/experience/bangalore.jpg"
-  },
-  {
-    "id": 1,
-    "position": 2,
-    "startAt": "02-02-2009",
-    "endAt": "12-24-2010",
-    "companyName": "Fácil Tecnologias",
-    "website": "http://www.faciltecnologias.com.br/",
-    "logo": "assets/template/experience/logo/facil-logo.png",
-    "internationalizations": [
-      {
-        "language": "pt",
-        "city": "Uberaba",
-        "country": "Brasil",
-        "role": "Estágio Webmaster",
-        "description": "A <b>Fácil Tecnologias LTDA</b> é uma empresa focada em soluções para educação, seu principal produto é um conjunto de soluções para estudos na obtenção da <i>carteira nacional de habilitação (CNH)</i>, entre elas, multimídias, aplicativos on-line, aplicativos móveis, livros, entre outros. <br><br>Na <i>Fácil Tecnologias LTDA</i>, entrei em contato com desenvolvedores seniores, aprendendo as melhores práticas, padrões e como debater idéias e oferecer soluções diversas para o mesmo problema. Foi o ponto de partida, uma oportunidade única de transformar o conhecimento teórico em soluções concretas que estavam sendo usadas por centenas de pessoas todos os dias."
-      },
-      {
-        "language": "en",
-        "city": "Uberaba",
-        "country": "Brazil",
-        "role": "Webmaster intern",
-        "description": "<b>Fácil Tecnologias LTDA</b> is a company focused in solutions for education, its main product is a set of solutions for studying for getting the <i>driver license</i>, among them, there are multimedia, online applications, mobile apps, books, and others.<br><br>At <i>Fácil Tecnologias LTDA</i>, I got in touch with senior developers, learning best practices, patterns, and how to debate ideas and offer various solutions for the very same problem. It was the start point, a unique opportunity to turn theoretical knowledge into concrete solutions that were being used by hundreds of people every day."
-      }
-    ],
-    "medias": [
-      {
-        "icon": "facebook",
-        "title": "Facebook Editora Nosso Trânsito",
-        "http": "https://www.facebook.com/editoranossotransito/"
-      }
-    ],
-    "backgroundUrl": "assets/template/experience/uberaba.jpg"
-  },
-  {
-    "id": 2,
-    "position": 2,
-    "startAt": "01-03-2011",
-    "endAt": "06-16-2014",
-    "companyName": "E-tática",
-    "website": "https://www.e-tatica.com/",
-    "logo": "assets/template/experience/logo/etatica-logo.png",
-    "internationalizations": [
-      {
-        "language": "pt",
-        "city": "Rio de Janeiro",
-        "country": "Brasil",
-        "role": "Desenvolvedor Full-stack",
-        "description": "A <b>E-tática</b> é uma agência especializada em soluções para <i>comércio eletrônico</i>, marketing digital e identidade visual desde 2008, trabalhando com grandes, pequenos e médios negócios, oferecendo para seus clientes, o know-how na integração de seus negócios com <i>Sistemas integrados de gestão empresarial (ERP)</i> e <i>APIs de terceiros</i>, tais como <i>provedores de pagamento personalizados</i>, fazendo a integração do gerenciamento interno da plataforma on-line e da loja física, sendo certificada pelas principais plataformas do mercado.<br><br>Na <i>E-tática </i>, trabalhei para desenvolver soluções personalizadas para clientes do atacado e varejo, valorizando a qualidade e a continuidade dos projetos a médio e longo prazo."
-      },
-      {
-        "language": "en",
-        "city": "Rio de Janeiro",
-        "country": "Brazil",
-        "role": "Full-stack Developer",
-        "description": "<b>E-tática</b> is an agency specialized in solutions for <i>e-commerce</i>, digital marketing, and visual identity since 2008, working with large, small, and medium-sized businesses, offering to their clients the know-how in the integration of <i>enterprise resource planning (ERP)</i> and <i>third-party APIs</i>, such as custom <i>payment providers</i>. It does the integration of the internal management of the online platform and physical store, being certified by the main platforms in the market.<br><br>At <i>E-tática</i> I have worked to develop custom solutions for clients wholesale and retail, valuing the quality and continuity of projects in the medium and long term."
-      }
-    ],
-    "medias": [
-      {
-        "icon": "linkedin",
-        "title": "LinkedIn E-tática",
-        "http": "https://www.linkedin.com/company/etatica/"
-      },
-      {
-        "icon": "facebook",
-        "title": "Facebook E-tática",
-        "http": "https://www.facebook.com/etatica/"
-      },
-      {
-        "icon": "instagram",
-        "title": "Instagram E-tática",
-        "http": "https://www.instagram.com/somos_etatica/"
-      }
-    ],
-    "backgroundUrl": "assets/template/experience/rio.jpg"
   },
   {
     "id": 3,
     "position": 3,
-    "startAt": "07-01-2014",
-    "endAt": "12-23-2016",
-    "companyName": "Deevo Studio",
-    "website": "http://deevo.com.br/",
-    "logo": "assets/template/experience/logo/deevo-logo.png",
-    "internationalizations": [
-      {
-        "language": "pt",
-        "city": "São Paulo",
-        "country": "Brasil",
-        "role": "Desenvolvedor Mobile",
-        "description": "A <b>Deevo Studio</b> é uma agência especializada em <i>web design</i> e <i>desenvolvimento</i> com um extenso portfólio de casos de sucesso, resultado de mais de <i>20 anos</i> de experiência com diversas agências e no mercado corporativo. Suas criações envolvem tudo, desde o desenvolvimento da marca e identidade visual, até a criação de aplicativos e sites, com um amplo conhecimento do Wordpress e das tecnologias da web. <br><br>Na <i>Deevo Studio</i>, tive a chance de usar o conhecimento anterior de <i>back-end</i> combinado com a experiência prática no desenvolvimento JAVA para aceitar o desafio de iniciar um <i>Departamento de Desenvolvimento Android</i> na empresa, fornecendo complexos <i>Aplicativos Android</i> para empresas no Brasil."
-      },
-      {
-        "language": "en",
-        "city": "São Paulo",
-        "country": "Brazil",
-        "role": "Mobile Developer",
-        "description": "At <b>Deevo Studio</b> is a company specializing in <i>web design</i> and <i>development</i> with an extensive portfolio of cases, the result of <i>20 years</i> of experience with other agencies and the corporate market. Their creations involve everything from brand development and visual identity to the creation of applications and websites, with a wide knowledge of Wordpress and Web Technologies.<br><br>At <i>Deevo Studio</i>, I had the chance to use the previously back-end knowledge combined with practical experience in JAVA development to accept the challenge to start an <i>Android Development Department</i> in the company, delivering complex <i>Android Applications</i> to companies in Brazil."
-      }
-    ],
-    "medias": [
-      {
-        "icon": "linkedin",
-        "title": "LinkedIn Deevo Studio",
-        "http": "https://www.linkedin.com/company/deevo/about/"
-      }
-    ],
-    "backgroundUrl": "assets/template/experience/sao-paulo.jpg"
+    "companyName": "RageUp",
+    "description": "RageUp is a career-tech platform designed to bridge the gap between talent and opportunity by streamlining hiring for aspiring finance professionals",
+    "logo": "assets/rageUp_logo.png",
+    "role": "Founder",
+    "backgroundUrl": "assets/template/experience/bangalore.jpg"
+  },
+  {
+    "id": 2,
+    "position": 2,
+    "companyName": "PwC India",
+    "description": "Worked on commercial due diligence and go-to-market strategy projects, helping clients make informed investment and growth decisions.",
+    "logo": "assets/pwc_logo.jpeg",
+    "role": "Strategy Consultant",
+    "backgroundUrl": "assets/template/experience/rio.jpg"
+  },
+  {
+    "id": 4,
+    "position": 5,
+    "companyName": "Education",
+    "description": "",
+    "logo": "",
+    "role": "",
+    "backgroundUrl": "assets/education.png"
+  },
+  {
+    "id": 1,
+    "position": 1,
+    "companyName": "Transaction Square",
+    "description": "Contributed to financial modeling and M&A advisory projects, enabling clients to make informed investment and restructuring decisions",
+    "logo": "assets/ts_logo.jpeg",
+    "role": "Evaluation Analyst (Articleship)",
+    "backgroundUrl": "assets/template/experience/bangalore.jpg"
   }
 ]

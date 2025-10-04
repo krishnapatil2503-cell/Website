@@ -3,7 +3,6 @@ import {
   OnInit,
   OnDestroy,
   ElementRef,
-  Renderer2,
   ViewChild,
   HostListener,
 } from "@angular/core";
@@ -27,25 +26,11 @@ export class ExperienceComponent
   extends AbstractSwipeSection
   implements OnInit, OnDestroy
 {
-  SELECTED_CLASS: string = "selected";
-  LEAVE_RIGHT_CLASS: string = "leave-right";
-  ENTER_RIGHT_CLASS: string = "enter-right";
-  LEAVE_LEFT_CLASS: string = "leave-left";
-  ENTER_LEFT_CLASS: string = "enter-left";
-  TRANSITION_TIME: number = 400;
-
   experiences: IExperience[];
   experiencesOrdered: IExperience[] = [];
   currentPosition: number;
   backgroundUrl: string;
 
-  previousYear: string;
-  currentYear: string;
-  nextYear: string;
-
-  @ViewChild("orderedList") orderedList: ElementRef;
-  @ViewChild("experienceCards") experienceCards: ElementRef;
-  @ViewChild("scrollContainer") scrollContainer: ElementRef;
   @ViewChild("contentScrollContainer") contentScrollContainer: ElementRef;
 
   private intersectionObserver: IntersectionObserver;
@@ -53,7 +38,6 @@ export class ExperienceComponent
   constructor(
     private dataService: DataService,
     private sortService: SorterService,
-    private renderer: Renderer2,
     private library: FaIconLibrary
   ) {
     super();
@@ -71,7 +55,6 @@ export class ExperienceComponent
         this.experiencesOrdered = [...experiences];
         this.experiencesOrdered.sort(this.sortService.sort("position", "desc"));
         this.backgroundUrl = this.retrieveBackgroundUrl();
-        this.updateMobileNavigationView();
         this.preloadBounderyImages(experiences.map((xp) => xp.backgroundUrl));
 
         // Set CSS variable for experience count to ensure proper height
@@ -87,6 +70,7 @@ export class ExperienceComponent
       });
   }
 
+  // Required by AbstractSwipeSection
   public disablePreviousNavigation(): boolean {
     return this.currentPosition === 1;
   }
@@ -95,126 +79,51 @@ export class ExperienceComponent
     return this.currentPosition === this.experiencesOrdered?.length;
   }
 
+  onClickPrevious(_targetPos?: number): void {
+    // Not used in this implementation - using scroll-based navigation instead
+  }
+
+  onClickNext(_targetPos?: number): void {
+    // Not used in this implementation - using scroll-based navigation instead
+  }
+
   // Preloads the boundaries images related to the current position in order to avoid the "blinking" of the background while navigating.
   private preloadBounderyImages(images: string[]) {
     images.forEach(function (image, i) {
-      const preloadImages = new Array();
-      preloadImages[i] = new Image();
-      preloadImages[i].src = image;
+      if (image) {
+        const preloadImages = new Array();
+        preloadImages[i] = new Image();
+        preloadImages[i].src = image;
+      }
     });
-  }
-
-  private createListSelector(position: number): string {
-    return `li[id="${position}"]`;
-  }
-
-  onClickPrevious(targetPos?: number): void {
-    const currElem = this.orderedList.nativeElement.querySelector(
-      this.createListSelector(this.currentPosition)
-    );
-    this.renderer.removeClass(currElem, this.SELECTED_CLASS);
-    this.renderer.addClass(currElem, this.LEAVE_RIGHT_CLASS);
-
-    setTimeout(() => {
-      this.renderer.removeClass(currElem, this.LEAVE_RIGHT_CLASS);
-    }, this.TRANSITION_TIME);
-
-    // Subtracts one to the current position in order to move backwards in the timeline.
-    this.currentPosition = targetPos ? +targetPos : this.currentPosition - 1;
-    this.backgroundUrl = this.retrieveBackgroundUrl();
-
-    const targetElem = this.orderedList.nativeElement.querySelector(
-      this.createListSelector(this.currentPosition)
-    );
-    this.renderer.addClass(targetElem, this.SELECTED_CLASS);
-    this.renderer.addClass(targetElem, this.ENTER_LEFT_CLASS);
-
-    setTimeout(() => {
-      this.renderer.removeClass(targetElem, this.ENTER_LEFT_CLASS);
-    }, this.TRANSITION_TIME);
-
-    this.updateMobileNavigationView();
-  }
-
-  onClickNext(targetPos?: number): void {
-    const currElem = this.orderedList.nativeElement.querySelector(
-      this.createListSelector(this.currentPosition)
-    );
-    this.renderer.removeClass(currElem, this.SELECTED_CLASS);
-    this.renderer.addClass(currElem, this.LEAVE_LEFT_CLASS);
-
-    setTimeout(() => {
-      this.renderer.removeClass(currElem, this.LEAVE_LEFT_CLASS);
-    }, this.TRANSITION_TIME);
-
-    // Sums one to the current position in order to move further in the timeline.
-    this.currentPosition = targetPos ? +targetPos : this.currentPosition + 1;
-    this.backgroundUrl = this.retrieveBackgroundUrl();
-
-    const targetElem = this.orderedList.nativeElement.querySelector(
-      this.createListSelector(this.currentPosition)
-    );
-    this.renderer.addClass(targetElem, this.SELECTED_CLASS);
-    this.renderer.addClass(targetElem, this.ENTER_RIGHT_CLASS);
-
-    setTimeout(() => {
-      this.renderer.removeClass(targetElem, this.ENTER_RIGHT_CLASS);
-    }, this.TRANSITION_TIME);
-
-    this.updateMobileNavigationView();
-  }
-
-  updateNavigation(targetPos: number) {
-    // in case of == nothing to do here
-    if (targetPos > this.currentPosition) {
-      this.onClickNext(targetPos);
-    } else if (targetPos < this.currentPosition) {
-      this.onClickPrevious(targetPos);
-    }
   }
 
   private retrieveBackgroundUrl(): string {
     if (
-      this.experiences &&
-      this.experiences.length > 0 &&
+      this.experiencesOrdered &&
+      this.experiencesOrdered.length > 0 &&
       this.currentPosition > 0
     ) {
-      return this.experiences[this.currentPosition - 1].backgroundUrl;
+      return this.experiencesOrdered[this.currentPosition - 1].backgroundUrl;
     }
     return this.experiencesOrdered && this.experiencesOrdered.length > 0
       ? this.experiencesOrdered[0].backgroundUrl
       : "";
   }
 
-  private updateMobileNavigationView() {
-    this.previousYear =
-      this.experiences[this.currentPosition - 2]?.startAt ||
-      this.experiences[this.currentPosition - 1].startAt;
-    this.currentYear = this.experiences[this.currentPosition - 1].startAt;
-    this.nextYear =
-      this.experiences[this.currentPosition]?.startAt ||
-      this.experiences[this.currentPosition - 1].startAt;
-  }
-
-  // Retool-style experience selection
-  setCurrentExperience(position: number): void {
-    this.currentPosition = position;
-    this.backgroundUrl = this.retrieveBackgroundUrl();
-    this.updateMobileNavigationView();
-  }
-
-  private scrollToActiveCard(): void {
-    if (this.scrollContainer) {
-      const container = this.scrollContainer.nativeElement;
-      const activeCard = container.querySelector(".experience-card.active");
-      if (activeCard) {
-        activeCard.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "center",
-        });
-      }
+  // Helper method to get localized text from internationalizations
+  getLocationText(exp: any, property: string): string {
+    if (!exp.internationalizations || exp.internationalizations.length === 0) {
+      return exp[property] || "";
     }
+
+    // Try to find English first, then any available language
+    const englishData = exp.internationalizations.find(
+      (item: any) => item.language === "en"
+    );
+    const data = englishData || exp.internationalizations[0];
+
+    return data[property] || exp[property] || "";
   }
 
   ngOnDestroy(): void {
@@ -239,7 +148,6 @@ export class ExperienceComponent
             if (index !== -1 && this.currentPosition !== index + 1) {
               this.currentPosition = index + 1;
               this.backgroundUrl = this.retrieveBackgroundUrl();
-              this.updateMobileNavigationView();
             }
           }
         });
@@ -254,21 +162,6 @@ export class ExperienceComponent
     experienceItems.forEach((item) => {
       this.intersectionObserver.observe(item);
     });
-  }
-
-  // Helper method to get location text
-  getLocationText(exp: IExperience, property: string): string {
-    if (!exp.internationalizations || exp.internationalizations.length === 0) {
-      return "Loading...";
-    }
-
-    // Try to find English first, then any available language
-    const englishData = exp.internationalizations.find(
-      (item) => item.language === "en"
-    );
-    const data = englishData || exp.internationalizations[0];
-
-    return data[property] || "Loading...";
   }
 
   // Method to calculate scroll-based zoom scale
@@ -378,7 +271,6 @@ export class ExperienceComponent
       if (activeIndex !== -1 && this.currentPosition !== activeIndex + 1) {
         this.currentPosition = activeIndex + 1;
         this.backgroundUrl = this.retrieveBackgroundUrl();
-        this.updateMobileNavigationView();
       }
     }
   }

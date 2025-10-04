@@ -13,7 +13,7 @@
           <div class="tab-tooltip">
             <div class="tooltip-arrow"></div>
             <div class="tooltip-content">
-              <p class="tooltip-text">Discover my personal interests and creative pursuits</p>
+              <p class="tooltip-text">Me being animated</p>
             </div>
           </div>
         </button>
@@ -24,7 +24,7 @@
           <div class="tab-tooltip">
             <div class="tooltip-arrow"></div>
             <div class="tooltip-content">
-              <p class="tooltip-text">Explore my community involvement and professional activities</p>
+              <p class="tooltip-text">Me being nerdy</p>
             </div>
           </div>
         </button>
@@ -45,10 +45,10 @@
           </div>
         </div>
 
-        <!-- Description Box -->
+        <!-- Summary Box -->
         <div class="hobbies-description-container">
           <div class="hobbies-description-box">
-            <p class="hobbies-description-text">{{ getCurrentItems()[currentPosition - 1]?.description || 'Loading description...' }}</p>
+            <p class="hobbies-description-text">{{ getCurrentItems()[currentPosition - 1]?.summary || 'Loading summary...' }}</p>
           </div>
         </div>
       </div>
@@ -76,6 +76,20 @@
           </button>
         </div>
       </div>
+    </div>
+
+    <!-- Animated GIF that pops from right when hobbies tab is active -->
+    <div class="animated-gif-container" *ngIf="activeMainTab === 'hobbies' && showGif" [@gifPopAnimation]>
+      <img [src]="'assets/Informal_Gif.gif?' + gifAnimationKey"
+           alt="Animated character"
+           class="pop-out-gif"
+           [attr.key]="gifAnimationKey">
+    </div>
+
+    <!-- Animated GIF that pops from right when extracurricular tab is active -->
+    <div class="animated-gif-container" *ngIf="activeMainTab === 'extracurricular' && showGif" [@gifPopAnimation]>
+      <img [src]="'assets/kling_20251005_Image_to_Video_Show_intel_180_0 (1).gif?' + gifAnimationKey" alt="Animated character" class="pop-out-gif"
+        [attr.key]="gifAnimationKey">
     </div>
   </div>
 </section>

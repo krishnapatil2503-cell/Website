@@ -107,9 +107,9 @@ export class ExperienceTimelineComponent implements OnInit, OnDestroy {
   }
 
   populateExperienceTimeline(): void {
-    let dates: string[] = this._experiences.map(
-      (experience) => experience.startAt
-    );
+    let dates: string[] = this._experiences
+      .map((experience) => (experience as any).startAt)
+      .filter((date: string) => date != null);
 
     // Adding the current day in order to complete the timeline.
     dates.push(this.retrieveTodayDateAsString());

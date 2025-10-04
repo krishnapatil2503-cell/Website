@@ -3,6 +3,7 @@ export interface IHobby {
   title: string;
   description: string;
   icon: string;
+  summary: string;
   backgroundUrl: string;
   color: string;
   position: number;

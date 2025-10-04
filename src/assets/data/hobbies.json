@@ -1,28 +1,31 @@
 [
   {
     "id": 1,
-    "title": "Night life",
-    "description": "Capturing moments and telling stories through the lens.",
+    "title": "Wanderer",
+    "description": "Some trips change more than the view",
+    "summary": "This photo is special. It’s where I learned I became a Chartered Accountant",
     "icon": "camera",
-    "backgroundUrl": "assets/night_life.jpeg",
+    "backgroundUrl": "assets/True Traveller_Page 2.jpeg",
     "color": "#FF6B6B",
     "position": 3
   },
   {
     "id": 2,
-    "title": "Coffee Addict",
-    "description": "Creating beats and melodies that resonate.",
-    "icon": "coffee",
-    "backgroundUrl": "assets/night_life.jpeg",
+    "title": "Kite Flying",
+    "description": "Strings attached, but sky's the limit",
+    "summary": "Every 14th January, you'll find me in Gujarat, lost in the madness of the kite festival",
+    "icon": "wind",
+    "backgroundUrl": "assets/Kite-Festival_Page 2.webp",
     "color": "#4ECDC4",
     "position": 2
   },
   {
     "id": 3,
-    "title": "Bowling",
-    "description": "Exploring culinary arts and experimenting with flavors from around the world.",
-    "icon": "dumbbell",
-    "backgroundUrl": "assets/bg.jpeg",
+    "title": "Coffee Addict",
+    "description": "My portfolio starts with an espresso",
+    "summary": "Coffee isn’t a habit. It’s the unofficial sponsor of my late-night ideas and early-morning deadlines: preferably a Monsoon Malabar from Blue Tokai.",
+    "icon": "coffee",
+    "backgroundUrl": "assets/Coffee_website.jpg",
     "color": "#45B7D1",
     "position": 1
   }
