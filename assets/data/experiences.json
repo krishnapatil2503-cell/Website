@@ -1,0 +1,47 @@
+[
+  {
+    "id": 4,
+    "position": 4,
+    "companyName": "Plum Benefits",
+    "description": "Forbes 100 Insurtech startup specializing in employee healthcare benefits and wellness",
+    "logo": "assets/plum_logo.jpeg",
+    "role": "Founding Member (B2C)",
+    "backgroundUrl": "assets/Plum.png"
+  },
+  {
+    "id": 3,
+    "position": 3,
+    "companyName": "RageUp",
+    "description": "RageUp is a career-tech platform designed to bridge the gap between talent and opportunity by streamlining hiring for aspiring finance professionals",
+    "logo": "assets/rageUp_logo.png",
+    "role": "Founder",
+    "backgroundUrl": "assets/RageUp.png"
+  },
+  {
+    "id": 2,
+    "position": 2,
+    "companyName": "PwC India",
+    "description": "Worked on commercial due diligence and go-to-market strategy projects, helping clients make informed investment and growth decisions.",
+    "logo": "assets/pwc_logo.jpeg",
+    "role": "Strategy Consultant",
+    "backgroundUrl": "assets/PwC.png"
+  },
+  {
+    "id": 4,
+    "position": 5,
+    "companyName": "Education",
+    "description": "",
+    "logo": "",
+    "role": "",
+    "backgroundUrl": "assets/education.png"
+  },
+  {
+    "id": 1,
+    "position": 1,
+    "companyName": "Transaction Square",
+    "description": "Contributed to financial modeling and M&A advisory projects, enabling clients to make informed investment and restructuring decisions",
+    "logo": "assets/ts_logo.jpeg",
+    "role": "Evaluation Analyst (Articleship)",
+    "backgroundUrl": "assets/TS.png"
+  }
+]
