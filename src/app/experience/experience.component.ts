@@ -49,7 +49,7 @@ export class ExperienceComponent
     this.dataService
       .getExperiences()
       .subscribe((experiences: IExperience[]) => {
-        this.currentPosition = experiences.length;
+        this.currentPosition = 1;
         this.experiences = experiences;
 
         this.experiencesOrdered = [...experiences];
