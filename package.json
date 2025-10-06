@@ -15,7 +15,9 @@
     "int:extract": "ng xi18n --output-path src/locales",
     "build-locale:en": "ng build --configuration en",
     "build-locale:pt": "ng build --configuration pt",
-    "build-locale": "npm run build-locale:en && npm run build-locale:pt"
+    "build-locale": "npm run build-locale:en && npm run build-locale:pt", 
+    "deploy": "bash deploy.sh",
+    "deploy:github": "bash deploy.sh"
   },
   "private": true,
   "dependencies": {
