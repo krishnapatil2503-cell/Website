@@ -15,7 +15,7 @@
     "description": "RageUp is a career-tech platform designed to bridge the gap between talent and opportunity by streamlining hiring for aspiring finance professionals",
     "logo": "assets/rageUp_logo.png",
     "role": "Founder",
-    "backgroundUrl": "assets/template/experience/bangalore.jpg"
+    "backgroundUrl": "assets/RageUp.png"
   },
   {
     "id": 2,
@@ -42,6 +42,6 @@
     "description": "Contributed to financial modeling and M&A advisory projects, enabling clients to make informed investment and restructuring decisions",
     "logo": "assets/ts_logo.jpeg",
     "role": "Evaluation Analyst (Articleship)",
-    "backgroundUrl": "assets/template/experience/bangalore.jpg"
+    "backgroundUrl": "assets/TS.png"
   }
 ]
