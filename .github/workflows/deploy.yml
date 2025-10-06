@@ -21,7 +21,9 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Build (production)
-        run: npm run build -- --configuration production
+        # Use the project repo path as the base href so the built site works
+        # when served at https://<user>.github.io/<repo>/
+        run: npm run build -- --configuration production --base-href /Website/
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
