@@ -64,16 +64,14 @@
 
   .animated-gif-container {
     position: relative !important;
-    left: auto !important;
-    bottom: auto !important;
     width: 100%;
     max-width: 100%;
-    margin-top: 20px;
+    margin-top: 15px;
   }
 
   .pop-out-gif {
     width: 100%;
-    max-width: 280px;
+    max-width: 240px;
     height: auto;
     margin: 0 auto;
     display: block;
@@ -95,6 +93,6 @@
   }
 
   .pop-out-gif {
-    max-width: 240px;
+    max-width: 200px;
   }
 }

@@ -321,7 +321,7 @@
 // Main Layout - Image and Description Side by Side
 .hobbies-main-layout {
   display: flex;
-  align-items: center;
+  align-items: flex-start; // Align to top to prevent vertical movement
   gap: 40px;
   width: 100%;
   max-width: 1000px;
@@ -366,8 +366,11 @@
 .hobbies-description-container {
   flex: 0 0 30%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 20px;
+  align-self: flex-start; // Align to top to prevent image movement
 }
 
 .hobbies-description-box {
@@ -377,9 +380,10 @@
   border-radius: 16px;
   padding: 20px;
   width: 100%;
+  max-height: 300px; // Prevent box from growing too large
+  overflow-y: auto; // Allow scrolling if content is too long
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   position: relative;
-  overflow: hidden;
   transition: all 0.3s ease;
 
   &::before {
@@ -416,8 +420,8 @@
 }
 
 .hobbies-description-text {
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 0.8rem;
+  line-height: 1.4;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 0;
   font-weight: 400;
@@ -906,18 +910,22 @@
   }
 }
 
-// Animated GIF Container - Pops from left
+// Animated GIF Container - Pops from below
 .animated-gif-container {
-  position: absolute;
-  bottom: 20px;
-  left: -350px;
+  position: relative;
+  margin-top: 20px;
   z-index: 100;
-  animation: slideInFromLeft 1s ease-out 0.5s forwards, bounceFloat 3s ease-in-out 1.5s infinite;
+  animation: slideInFromBelow 1s ease-out 0.5s forwards, bounceFloat 3s ease-in-out 1.5s infinite;
   pointer-events: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pop-out-gif {
-  width: 320px;
+  width: 100%;
+  max-width: 280px;
   height: auto;
   border-radius: 16px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
@@ -926,39 +934,35 @@
   transition: all 0.3s ease;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  transform: scale(0.75);
+  transform: scale(0.9);
   object-fit: cover;
   object-position: top;
-  max-height: 460px;
+  max-height: 400px;
 
   &:hover {
-    transform: scale(0.79) rotate(-2deg);
+    transform: scale(0.95) rotate(-2deg);
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
     border-color: rgba(0, 212, 255, 0.6);
     filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.6));
   }
 }
 
-// Animation for sliding in from left
-@keyframes slideInFromLeft {
+// Animation for sliding in from below
+@keyframes slideInFromBelow {
   0% {
-    left: -350px;
     opacity: 0;
-    transform: translateX(0) rotate(10deg);
+    transform: translateY(50px) scale(0.8) rotate(5deg);
   }
   60% {
-    left: -210px;
     opacity: 1;
-    transform: translateX(0) rotate(-5deg);
+    transform: translateY(-10px) scale(0.95) rotate(-2deg);
   }
   80% {
-    left: -220px;
-    transform: translateX(0) rotate(2deg);
+    transform: translateY(5px) scale(0.92) rotate(1deg);
   }
   100% {
-    left: -215px;
     opacity: 1;
-    transform: translateX(0) rotate(0deg);
+    transform: translateY(0) scale(0.9) rotate(0deg);
   }
 }
 
