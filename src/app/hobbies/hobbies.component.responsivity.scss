@@ -24,3 +24,77 @@
     font-size: 1.1rem;
   }
 }
+
+@media (max-width: 768px) {
+  .hobbies-content-container {
+    padding: 20px 15px !important;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .hobbies-main-layout {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hobbies-image-container {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 250px;
+    max-height: 400px;
+  }
+
+  .hobby-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .hobbies-description-container {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .animated-gif-container {
+    position: relative !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  .pop-out-gif {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .hobbies-content-container {
+    padding: 15px 10px !important;
+  }
+
+  .hobbies-main-layout {
+    gap: 15px;
+  }
+
+  .hobbies-image-container {
+    min-height: 200px;
+    max-height: 300px;
+  }
+
+  .pop-out-gif {
+    max-width: 240px;
+  }
+}
